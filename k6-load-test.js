@@ -12,7 +12,7 @@
 import http from 'k6/http';
 import { check, sleep } from 'k6';
 
-const BASE_URL = 'https://backend-production-9734.up.railway.app/api';
+const BASE_URL = 'http://localhost/api';
 
 export const options = {
   scenarios: {
