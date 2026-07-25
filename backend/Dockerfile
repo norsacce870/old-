@@ -18,11 +18,13 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/html
 
+# Copier les fichiers de l'application
 COPY . .
 
 # Installer les dépendances
-RUN composer install --optimize-autoloader
+RUN composer install --no-interaction --optimize-autoloader
 
+# Permissions
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html/storage \
     && chmod -R 755 /var/www/html/bootstrap/cache
